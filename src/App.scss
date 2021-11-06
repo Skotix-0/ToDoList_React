@@ -1,0 +1,125 @@
+@mixin df ($align, $justC) {
+  display: flex;
+  justify-content: $justC;
+  align-items: $align;
+}
+
+.App {
+  @include df (center, center);
+  flex-direction: column;
+  width: 50%;
+  transition: all .5s;
+
+    #TaskListArea{
+      width: 60%;
+      @include df (center, center);
+      flex-direction: column;
+      padding: 10px 0px 10px 0px;
+
+      #TaskListArea_child{
+        @include df (center, center);
+        margin-bottom: 10px;
+        width: 100%;
+
+        input{
+          width:100%;
+          border:2px solid #aaa;
+          border-radius:4px;
+          margin:8px 0;
+          outline:none;
+          padding:8px;
+          box-sizing:border-box;
+          transition:.3s;
+        }
+
+        input[type=checkbox]{
+          width: 42px;
+          height: 37px;
+          margin: 0px;
+          cursor: pointer;
+        }
+
+        #deletTask_btn{
+          border-left: none;
+          border-color: #aaa;
+          height: 35px;
+          background: white;
+          cursor: pointer;
+          position: relative;
+          right: 3px;
+          transition: .3s;
+        }
+
+        #activeCheck{
+          border-left: none;
+          border-color: #aaa;
+          height: 35px;
+          background: silver;
+          cursor: pointer;
+          position: relative;
+          right: 3px;
+          transition: .3s;
+        }
+      }
+  }
+}
+
+#Enter_Task{
+  width: 70%;
+  @include df (center, center);
+
+  input[type=text]{
+    width:100%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  
+  input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+
+  .plus {
+    display:inline-block;
+    width:35px;
+    height:35px;
+    
+    background:
+      linear-gradient(#fff,#fff),
+      linear-gradient(#fff,#fff),
+      dodgerBlue;
+    background-position:center;
+    background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+    cursor: pointer;
+    transition: .5s;
+    border: none;
+    position: relative;
+    right: 30px;
+  }
+  .radius {
+    border-radius:10%;
+  }
+
+  #filter{
+    height: 35px;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+    position: relative;
+    right: 30px;
+    text-align: center;
+  }
+}
+
+.activeCheck{
+  background: silver;
+  text-decoration: line-through 2px;
+}
+
+
